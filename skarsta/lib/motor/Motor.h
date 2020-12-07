@@ -4,13 +4,15 @@
 #include <Arduino.h>
 #include <Service.h>
 
-typedef enum {
+typedef enum
+{
     CCW,
     CW,
     OFF
 } MotorState;
 
-typedef enum {
+typedef enum
+{
     UNCALIBRATED,   // nothing calibrated
     SEMICALIBRATED, // bottom calibrated
     CALIBRATED      // bottom-top calibrated
@@ -24,7 +26,8 @@ typedef enum {
 
 #define MINIMUM_POS_CHANGE 8
 
-class Motor : Service {
+class Motor : Service
+{
 private:
     unsigned int end_stop = ~0u;
     MotorMode mode = UNCALIBRATED;
@@ -70,7 +73,7 @@ public:
 
     void set_mode(MotorMode state);
 
-    void disable();;
+    void disable();
 
     void cycle() override;
 
